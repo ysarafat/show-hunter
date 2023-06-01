@@ -1,12 +1,12 @@
 
 import { Outlet } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer/Footer';
-import Navbar from '../Pages/Shared/Navbar/Navbar';
+import Menu from '../Pages/Shared/Menu/Menu';
 
 const Main = () => {
     return (
         <div>
-            <Navbar />
+            <Menu />
             <Outlet />
             <Footer />
         </div>
