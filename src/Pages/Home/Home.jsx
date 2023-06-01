@@ -1,10 +1,11 @@
 import Hero from "./Hero/Hero";
+import Shows from "./Shows/Shows";
 
 const Home = () => {
     return (
         <div>
             <Hero />
-            <h1 className='text-primary'>this is home page</h1>
+            <Shows />
         </div>
     );
 };
