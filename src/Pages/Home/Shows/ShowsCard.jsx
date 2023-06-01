@@ -3,9 +3,10 @@ import moment from 'moment/moment';
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { BsFillStarFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 function ShowsCard({ show }) {
-    const { name, image, language, rating, premiered, ended } = show;
+    const { id, name, image, language, rating, premiered, ended } = show;
     return (
         <div>
             <Card style={{ width: '100%' }}>
@@ -27,19 +28,24 @@ function ShowsCard({ show }) {
                         <div>
                             <span>Premiered: {moment(premiered).format('DD MMM YYYY')}</span> <br />
                             <span>
-                                Ended:{' '}
-                                {ended ? moment(ended).format('DD MMM YYYY') : 'No Date Found'}
+                                Ended: {ended ? moment(ended).format('DD MMM YYYY') : 'Running'}
                             </span>
                         </div>
                     </Card.Text>
                 </Card.Body>
                 {/* <button className="btn btn-primary">Show Details</button> */}
-                <Button
-                    style={{ borderTopLeftRadius: '0', borderTopRightRadius: '0' }}
-                    variant="primary"
-                >
-                    Show Details
-                </Button>
+                <Link to={`/show/${id}`}>
+                    <Button
+                        style={{
+                            borderTopLeftRadius: '0',
+                            borderTopRightRadius: '0',
+                            width: '100%',
+                        }}
+                        variant="primary"
+                    >
+                        Show Details
+                    </Button>
+                </Link>
             </Card>
         </div>
     );
