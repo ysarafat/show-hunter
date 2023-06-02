@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 function BookingShow() {
@@ -11,6 +12,10 @@ function BookingShow() {
 
     return (
         <div className="container">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Show Hunter | Booked Show</title>
+            </Helmet>
             <h1 className="fw-bold fs-2 text-center py-3">My Booking</h1>
             {bookedShow?.map((show) => (
                 <div

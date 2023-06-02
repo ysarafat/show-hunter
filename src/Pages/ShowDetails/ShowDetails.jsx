@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 function ShowDetails() {
@@ -15,6 +16,10 @@ function ShowDetails() {
 
     return (
         <div className="container ">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Show Hunter | Show Details</title>
+            </Helmet>
             <h1 className="fw-bold fs-2 text-center py-3">Show Details</h1>
             <div className="d-flex align-items-center gap-5">
                 <img

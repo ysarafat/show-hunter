@@ -22,7 +22,7 @@ function Menu() {
                         </Nav.Link>
                         <Nav.Link>
                             <Link className="text-decoration-none text-dark" to="/booked">
-                                My Booking
+                                Booked Show
                             </Link>
                         </Nav.Link>
                     </Nav>

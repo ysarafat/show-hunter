@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -62,6 +63,10 @@ function BookingForm() {
     console.log(singleShow);
     return (
         <div className="container">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Show Hunter | Booking Show</title>
+            </Helmet>
             <h1 className="fw-bold fs-2 text-center py-3">Booking Show</h1>
             <form onSubmit={handleSubmit} action="">
                 <label className="form-label">Your Name</label>
