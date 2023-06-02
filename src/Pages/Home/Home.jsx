@@ -1,13 +1,13 @@
-import Hero from "./Hero/Hero";
-import Shows from "./Shows/Shows";
+import Hero from './Hero/Hero';
+import Shows from './Shows/Shows';
 
-const Home = () => {
+function Home() {
     return (
         <div>
             <Hero />
             <Shows />
         </div>
     );
-};
+}
 
 export default Home;

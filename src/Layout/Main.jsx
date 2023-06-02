@@ -1,16 +1,17 @@
-
 import { Outlet } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer/Footer';
-import Menu from '../Pages/Shared/Menu/Menu';
+import Header from '../Pages/Shared/Header/Header';
 
-const Main = () => {
+function Main() {
     return (
         <div>
-            <Menu />
-            <Outlet />
+            <Header />
+            <div style={{ minHeight: 'calc(100vh - 160px)' }}>
+                <Outlet />
+            </div>
             <Footer />
         </div>
     );
-};
+}
 
 export default Main;

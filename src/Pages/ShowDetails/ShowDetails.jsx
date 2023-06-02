@@ -1,42 +1,21 @@
 import React from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 function ShowDetails() {
-    const id = useParams();
+    const showId = useParams();
     const shows = useLoaderData();
 
     // find single show
-    const singleShow = shows.find((s) => s.show.id == id.id);
-    const { name, image, type, language, genres, status, schedule, summary, rating } =
+    const singleShow = shows.find((s) => s.show.id == showId.id);
+    const { id, name, image, type, language, genres, status, schedule, summary, rating } =
         singleShow.show;
 
     const genresList = genres.join(', ');
     const scheduleList = schedule.days.join(', ');
 
-    // store booking data in local storage
-    const handleBooking = (show) => {
-        const singleBooking = [];
-        const showData = {
-            name: show.name,
-            image: show.image.original,
-            language: show.language,
-            time: show.schedule.time,
-        };
-        singleBooking.push(showData);
-        const storedBookingData = localStorage.getItem('bookingData');
-        if (storedBookingData) {
-            const allBooking = [];
-            const bookingData = JSON.parse(storedBookingData);
-            allBooking.push(...bookingData, showData);
-
-            localStorage.setItem('bookingData', JSON.stringify(allBooking));
-        } else {
-            localStorage.setItem('bookingData', JSON.stringify(singleBooking));
-        }
-    };
-
     return (
-        <div className="container mt-5">
+        <div className="container ">
+            <h1 className="fw-bold fs-2 text-center py-3">Show Details</h1>
             <div className="d-flex align-items-center gap-5">
                 <img
                     className="img-fluid rounded"
@@ -60,12 +39,9 @@ function ShowDetails() {
                         <p className="fw-bold">Summary: </p>
                         <p dangerouslySetInnerHTML={{ __html: summary }} />
                     </div>
-                    <button
-                        onClick={() => handleBooking(singleShow.show)}
-                        className="btn btn-primary"
-                    >
-                        Book The Show
-                    </button>
+                    <Link to={`/booking/${id}`}>
+                        <button className="btn btn-primary">Book The Show</button>
+                    </Link>
                 </div>
             </div>
         </div>
