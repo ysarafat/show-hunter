@@ -15,14 +15,24 @@ function ShowDetails() {
 
     // store booking data in local storage
     const handleBooking = (show) => {
-        const bookingData = {
+        const singleBooking = [];
+        const showData = {
             name: show.name,
             image: show.image.original,
             language: show.language,
             time: show.schedule.time,
         };
+        singleBooking.push(showData);
+        const storedBookingData = localStorage.getItem('bookingData');
+        if (storedBookingData) {
+            const allBooking = [];
+            const bookingData = JSON.parse(storedBookingData);
+            allBooking.push(...bookingData, showData);
 
-        localStorage.setItem('booking', JSON.stringify(bookingData));
+            localStorage.setItem('bookingData', JSON.stringify(allBooking));
+        } else {
+            localStorage.setItem('bookingData', JSON.stringify(singleBooking));
+        }
     };
 
     return (
