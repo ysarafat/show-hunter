@@ -13,6 +13,18 @@ function ShowDetails() {
     const genresList = genres.join(', ');
     const scheduleList = schedule.days.join(', ');
 
+    // store booking data in local storage
+    const handleBooking = (show) => {
+        const bookingData = {
+            name: show.name,
+            image: show.image.original,
+            language: show.language,
+            time: show.schedule.time,
+        };
+
+        localStorage.setItem('booking', JSON.stringify(bookingData));
+    };
+
     return (
         <div className="container mt-5">
             <div className="d-flex align-items-center gap-5">
@@ -38,6 +50,12 @@ function ShowDetails() {
                         <p className="fw-bold">Summary: </p>
                         <p dangerouslySetInnerHTML={{ __html: summary }} />
                     </div>
+                    <button
+                        onClick={() => handleBooking(singleShow.show)}
+                        className="btn btn-primary"
+                    >
+                        Book The Show
+                    </button>
                 </div>
             </div>
         </div>
