@@ -45,7 +45,7 @@ function ShowDetails() {
                         <p dangerouslySetInnerHTML={{ __html: summary }} />
                     </div>
                     <Link to={`/booking/${id}`}>
-                        <button className="btn btn-primary">Book The Show</button>
+                        <button className="btn btn-primary">Booking The Show</button>
                     </Link>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 function BookingForm() {
@@ -12,7 +12,7 @@ function BookingForm() {
         const findShow = shows.find((s) => s.show.id == id.id);
         setSingleShow(findShow);
     }, []);
-
+    const navigate = useNavigate();
     // store booking data in local storage
 
     const handleSubmit = (event) => {
@@ -49,6 +49,7 @@ function BookingForm() {
                 showConfirmButton: false,
                 timer: 1500,
             });
+            navigate('/booked');
         } else {
             localStorage.setItem('bookingData', JSON.stringify(singleBooking));
             Swal.fire({
@@ -58,6 +59,7 @@ function BookingForm() {
                 showConfirmButton: false,
                 timer: 1500,
             });
+            navigate('/booked');
         }
     };
     console.log(singleShow);
